@@ -21,7 +21,7 @@ Put the 3rd script (*cf_ip_updater.sh*) into a cron job to run every 5 or 15 min
 * SUBDOMAIN    web.cloudflare.com (your subdomain linked to your system's IP address)<br>
 * EMAIL        email@cloudflare.com (your account name)
 * KEY          9a7806061c88ada191ed06f989cc3dac (your CloudFlare API key details)
-*FILEPATH     /home/path (where you want the script to be)
+* FILEPATH     /home/path (where you want the script to be)
 
 ## Read more at:
 * https://www.georgeliu.me/2016/07/27/pivpn-staticdynamic-server-names-and-cloudflare-dns-part-1/
