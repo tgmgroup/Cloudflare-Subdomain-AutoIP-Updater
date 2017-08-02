@@ -1,6 +1,12 @@
 #!/bin/bash
 
-# Variables
+### Purpose
+# This script creates a script to read in your CloudFlare variables.
+# Then this script uses those variables to create a new script to make an auto-updating script.
+# Whenever you run the auto-updating script, the system will get its IP address of the system
+#   and update the associated information at CloudFlare.
+
+### Variables
 #  FULLDOMAIN
 #  SUBDOMAIN
 #  EMAIL
