@@ -33,9 +33,11 @@ Put the 3rd script (*cf_ip_updater.sh*) into a cron job to run every 5 or 15 min
 * FILEPATH     /home/path (where you want the script to be)
 
 ## How to run:
-1. wget https://raw.githubusercontent.com/tgmgroup/Cloudflare-Subdomain-AutoIP-Updater/master/cf_ip_script_creator.sh
-2. chmod +X cf_ip_script_creator.sh
-3. sudo bash cf_ip_script_creator.sh
+```
+    wget https://raw.githubusercontent.com/tgmgroup/Cloudflare-Subdomain-AutoIP-Updater/master/cf_ip_script_creator.sh
+    chmod +X cf_ip_script_creator.sh
+    sudo bash cf_ip_script_creator.sh
+```
 
 ## Dependencies: 
 * The jq command requires the jq package (*sudo apt install jq*)
