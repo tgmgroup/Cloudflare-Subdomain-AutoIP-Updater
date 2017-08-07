@@ -10,11 +10,11 @@ This script creates 3 files:
 
 Put the 3rd script (*cf_ip_updater.sh*) into a cron job to run every 5 or 15 minutes or so so that you can use access your system anywhere.
 
-    ```
+```
     sudo crontab -e
     
     */10 * * * *  nice -n 16 /home/scripts/cf_ip_updater.sh
-    ```
+```
 
 ### Potential uses:
 * log into your computer anytime with SSH
