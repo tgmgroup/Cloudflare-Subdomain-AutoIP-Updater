@@ -4,11 +4,15 @@ Create a private Dynamic DNS using the CloudFlare API with this script.
 If you have a domain registered at CloudFlare, you can use this script to update the IP of the subdomain with a specific computer. The computer will get its IP address and send the information to CloudFlare using the API.
 
 This script creates 3 files: 
-1. an initializing script that creates and runs everything: cf_ip_script_creator.sh
-2. a script that gets all the CF details from you: cf_ip_updater_creator.sh
-3. a script that updates the subdomain IP address: cf_ip_updater.sh
+1. an initializing script that creates and runs everything: *cf_ip_script_creator.sh*
+2. a script that gets all the CF details from you: *cf_ip_updater_creator.sh*
+3. a script that updates the subdomain IP address: *cf_ip_updater.sh*
 
 Put the 3rd script (*cf_ip_updater.sh*) into a cron job to run every 5 or 15 minutes or so so that you can use access your system anywhere.
+    ```
+    sudo crontab -e
+    */10 * * * *  nice -n 16 /home/scripts/cf_ip_updater.sh
+    ```
 
 ### Potential uses:
 * log into your computer anytime with SSH
