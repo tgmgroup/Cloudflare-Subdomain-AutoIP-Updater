@@ -24,7 +24,8 @@ Put the 3rd script (*cf_ip_updater.sh*) into a cron job to run every 5 or 15 min
 * FILEPATH     /home/path (where you want the script to be)
 
 ## Dependencies: 
-You must install the jq package for this script to work.
+* The jq command requires the jq package
+* The dig command requires dnsutils (Debian) or bind-utils (Cent-OS)
 
 ## Read more at:
 * https://www.georgeliu.me/2016/07/27/pivpn-staticdynamic-server-names-and-cloudflare-dns-part-1/
