@@ -26,9 +26,14 @@ Put the 3rd script (*cf_ip_updater.sh*) into a cron job to run every 5 or 15 min
 * KEY          9a7806061c88ada191ed06f989cc3dac (your CloudFlare API key details)
 * FILEPATH     /home/path (where you want the script to be)
 
+## How to run:
+1. wget https://raw.githubusercontent.com/tgmgroup/Cloudflare-Subdomain-AutoIP-Updater/master/cf_ip_script_creator.sh
+2. chmod +X cf_ip_script_creator.sh
+3. sudo bash cf_ip_script_creator.sh
+
 ## Dependencies: 
-* The jq command requires the jq package
-* The dig command requires dnsutils (Debian) or bind-utils (Cent-OS)
+* The jq command requires the jq package (*sudo apt install jq*)
+* The dig command requires dnsutils (Debian) or bind-utils (Cent-OS) (*sudo apt install dnsutils*)
 
 ## Read more at:
 * https://www.georgeliu.me/2016/07/27/pivpn-staticdynamic-server-names-and-cloudflare-dns-part-1/
