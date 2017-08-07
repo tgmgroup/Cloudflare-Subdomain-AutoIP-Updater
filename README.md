@@ -13,8 +13,11 @@ Put the 3rd script (*cf_ip_updater.sh*) into a cron job to run every 5 or 15 min
 ### Potential uses:
 * log into your computer anytime with SSH
 * run a portable OpenVPN server
-* keep your blog server private by using cloudflare caching
+* keep your blog server private by using CloudFlare caching
 * whatever you can think of
+
+### Some potential issues:
+* if you fail to successfully run the script, the *cat* commands that append text to existing commands will force you to delete the create scripts (*cf_ip_updater.sh, cf_ip_updater_creator.sh*) before you run the initializing script (*cf_ip_script_creator.sh*) again.
 
 ## You need the following information: 
 * FULLDOMAIN   cloudflare.com (your registered domain name)
