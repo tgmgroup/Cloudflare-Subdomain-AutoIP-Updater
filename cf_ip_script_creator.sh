@@ -12,8 +12,10 @@
 #  EMAIL
 #  KEY
 
-# 1. Create cf_ip_updater_creator.sh script
+###### 1. Create cf_ip_updater_creator.sh script (start)
 sudo touch cf_ip_updater_creater.sh
+
+##################### cf_ip_updater_creator.sh script (start)
 cat << 'EOF' >> cf_ip_updater_creater.sh
 
 # Get User Data
@@ -34,7 +36,7 @@ echo -n "Enter path to create cf_ip_updater.sh script (e.g. /home/path) and pres
 read FILEPATH
 
 
-#Get Zone and Record IDS
+# Get Zone and Record IDS
 ZONEID=$(curl -X GET "https://api.cloudflare.com/client/v4/zones?name=$FULLDOMAIN" \
   -H "X-Auth-Email: $EMAIL" \
   -H "X-Auth-Key: $KEY" \
@@ -46,17 +48,19 @@ RECORDID=$(curl -X GET "https://api.cloudflare.com/client/v4/zones/$ZONEID/dns_r
   -H "Content-Type: application/json" | jq . | grep id | head -1 | cut -d '"' -f4)
 
 
-#Print IDS
+# Print IDS
 echo "Your Zone ID:   $ZONEID"
 echo "Your Record ID: $RECORDID"
 
 
-  # 2. Create cf_ip_updater.sh script
+###### 2. Create cf_ip_updater.sh script (start)
       FILE="$FILEPATH/cf_ip_updater.sh"
       echo "Your script name: $FILE"
-
-
+      
+      
+      ##################### cf_ip_updater.sh script (start)
       cat << EOM >>$FILE
+
 #!/bin/sh
 
 [ ! -f /var/tmp/current_ip.txt ] && touch /var/tmp/currentip.txt
@@ -76,14 +80,18 @@ else
   echo \$NEWIP > /var/tmp/currentip.txt
 fi
 EOM
-
+      ##################### cf_ip_updater.sh script (ends)
+      
   chmod +x $FILE
-  # 2. Finish creation of cf_ip_updater.sh script
+###### 2. Create cf_ip_updater.sh script (end)
 
 EOF
+##################### cf_ip_updater_creator.sh script (end)
 
+###### 1. Create cf_ip_updater_creator.sh script (end)
+
+
+
+###### 3. Run cf_ip_updater_creator.sh
 sudo chmod +x cf_ip_updater_creater.sh
-# 1. Finish creation of cf_ip_updater_creator.sh script
-
-# 3. Run cf_ip_updater_creator.sh
 ./cf_ip_updater_creater.sh
