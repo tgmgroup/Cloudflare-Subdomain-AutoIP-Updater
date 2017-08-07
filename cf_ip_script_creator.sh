@@ -57,24 +57,24 @@ echo "Your Record ID: $RECORDID"
 
 
       cat << EOM >>$FILE
-      #!/bin/sh
+#!/bin/sh
 
-      [ ! -f /var/tmp/current_ip.txt ] && touch /var/tmp/currentip.txt
+[ ! -f /var/tmp/current_ip.txt ] && touch /var/tmp/currentip.txt
 
-      NEWIP=\$(dig +short myip.opendns.com @resolver1.opendns.com)
-      CURRENTIP=\$(cat /var/tmp/currentip.txt)
+NEWIP=\$(dig +short myip.opendns.com @resolver1.opendns.com)
+CURRENTIP=\$(cat /var/tmp/currentip.txt)
 
-      if [ "\$NEWIP" = "\$CURRENTIP" ]
-      then
-        echo "IP address unchanged"
-      else
-        curl -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONEID/dns_records/$RECORDID" \
-          -H "X-Auth-Email: $EMAIL" \
-          -H "X-Auth-Key: $KEY" \
-          -H "Content-Type: application/json" \
-          --data "{\"type\":\"A\",\"name\":\"$SUBDOMAIN\",\"content\":\"\$NEWIP\"}"
-        echo \$NEWIP > /var/tmp/currentip.txt
-      fi
+if [ "\$NEWIP" = "\$CURRENTIP" ]
+then
+  echo "IP address unchanged"
+else
+  curl -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONEID/dns_records/$RECORDID" \
+    -H "X-Auth-Email: $EMAIL" \
+    -H "X-Auth-Key: $KEY" \
+    -H "Content-Type: application/json" \
+    --data "{\"type\":\"A\",\"name\":\"$SUBDOMAIN\",\"content\":\"\$NEWIP\"}"
+  echo \$NEWIP > /var/tmp/currentip.txt
+fi
 EOM
 
   chmod +x $FILE
