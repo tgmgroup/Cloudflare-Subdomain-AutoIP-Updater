@@ -56,7 +56,7 @@ echo "Your Record ID: $RECORDID"
       echo "Your script name: $FILE"
 
 
-      cat <>$FILE
+      cat << EOM >>$FILE
       #!/bin/sh
 
       [ ! -f /var/tmp/current_ip.txt ] && touch /var/tmp/currentip.txt
@@ -75,7 +75,7 @@ echo "Your Record ID: $RECORDID"
           --data "{\"type\":\"A\",\"name\":\"$SUBDOMAIN\",\"content\":\"\$NEWIP\"}"
         echo \$NEWIP > /var/tmp/currentip.txt
       fi
-      EOM
+EOM
 
   chmod +x $FILE
   # 2. Finish creation of cf_ip_updater.sh script
